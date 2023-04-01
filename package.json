@@ -1,0 +1,29 @@
+{
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "name": "shopping-full-stack",
+  "description": "shopping app with ReactJS, Express, and MongoDB",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darmayasa221/shopping-full-stack.git"
+  },
+  "keywords": [
+    "ReactJS",
+    "ExpressJS",
+    "MongoDB",
+    "Typescript"
+  ],
+  "author": "darmayasa221@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/darmayasa221/shopping-full-stack/issues"
+  },
+  "homepage": "https://github.com/darmayasa221/shopping-full-stack#readme"
+}
