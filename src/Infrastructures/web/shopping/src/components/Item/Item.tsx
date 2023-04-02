@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "@emotion/styled";
 import Img from "../../assets/img/image.jpg";
 import { font } from "../../globalStyle/font";
 import { button } from "../../globalStyle/button";
+import Modal from "../Modal/Modal";
+import Confirmation from "../Alert/Confirmation";
 
 const Card = styled.div({
   cursor: "pointer",
@@ -56,8 +58,15 @@ const Button = styled.button(button, {
 });
 
 const Item = () => {
+  const [state, setState] = useState<boolean>(false);
+  const addItemToBagHandler = () => setState((prev) => !prev);
   return (
     <Card>
+      {state && (
+        <Modal onModalOff={addItemToBagHandler}>
+          <Confirmation />
+        </Modal>
+      )}
       <Header>
         <Image src={Img} alt="img" />
       </Header>
@@ -72,7 +81,9 @@ const Item = () => {
         </Left>
         <Right>
           <ItemPrice>$30</ItemPrice>
-          <Button>Add To Bag</Button>
+          <Button type="button" onClick={addItemToBagHandler}>
+            Add To Bag
+          </Button>
         </Right>
       </Main>
     </Card>
