@@ -9,7 +9,11 @@ export default class RegisterUserUseCase {
   }
 
   async execute(payload: IUser) {
-    const user = new User(payload);
-    return this.usersRepository.registerUser(user);
+    try {
+      const user = new User(payload);
+      return await this.usersRepository.registerUser(user);
+    } catch (error) {
+      return error;
+    }
   }
 }

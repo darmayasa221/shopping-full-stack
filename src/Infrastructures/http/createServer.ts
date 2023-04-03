@@ -7,15 +7,15 @@ import express, {
 } from "express";
 import cors from "cors";
 import morgan from "morgan";
-import { ResponseErrorType } from "../../Types/responseType";
+import { ResponseErrorType } from "../../Types/apiType";
+import users from "../../Interfaces/http/api/users";
+import container from "../container";
 
 const app = express();
 const router = Router();
+app.use([cors(), morgan("tiny"), json()]);
 
-app.use([cors(), morgan("tiny")]);
-app.use("/api/users", (req, res) => {
-  res.send("hellow");
-});
+app.use("/api/users", users({ router, container }));
 
 // error handler
 app.use(
@@ -29,7 +29,6 @@ app.use(
       status: "error",
       message: err.message,
     });
-    next(err.message);
   },
 );
 

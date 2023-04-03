@@ -3,7 +3,7 @@
 export interface IUser {
   name: string;
   email: string;
-  passowrd: string;
+  password: string;
 }
 
 export default class User implements IUser {
@@ -11,19 +11,19 @@ export default class User implements IUser {
 
   public email: string;
 
-  public passowrd: string;
+  public password: string;
 
   constructor(payload: IUser) {
     this.verifyPayload(payload);
-    const { name, email, passowrd } = payload;
+    const { name, email, password } = payload;
     this.name = name;
     this.email = email;
-    this.passowrd = passowrd;
+    this.password = password;
   }
 
   verifyPayload(payload: IUser) {
-    const { name, email, passowrd } = payload;
-    if (!name || !email || !passowrd) {
+    const { name, email, password } = payload;
+    if (!name || !email || !password) {
       throw new Error("USER.NOT_CONTAINT_NEEDED_PAYLOAD");
     }
   }

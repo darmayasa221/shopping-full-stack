@@ -14,20 +14,20 @@ export default class UserRegitered implements IUserRegisterd {
 
   public email: string;
 
-  public passowrd: string;
+  public password: string;
 
   constructor(payload: IUserRegisterd) {
     this.verifyPayload(payload);
-    const { _id, name, email, passowrd } = payload;
+    const { _id, name, email, password } = payload;
     this._id = _id;
     this.name = name;
     this.email = email;
-    this.passowrd = passowrd;
+    this.password = password;
   }
 
   verifyPayload(payload: IUserRegisterd) {
-    const { _id, name, email, passowrd } = payload;
-    if (!_id || !name || !email || !passowrd) {
+    const { _id, name, email, password } = payload;
+    if (!_id || !name || !email || !password) {
       throw new Error("USERREGISTERED.NOT_CONTAINT_NEEDED_PAYLOAD");
     }
   }
